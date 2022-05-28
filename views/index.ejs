@@ -4,10 +4,64 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Scientific Documents</title>
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-  <% let name = "Luthfi" %>
-  <h2><%= title %></h2>
+  <header class="jumbotron">
+    <h1>Scientific</h1>
+    <h1>Documents</h1>
+  </header>
+
+  <main>
+    <div class="filter">
+
+    </div>
+    <div class="render">
+      <% results.forEach((result) => { %>
+      <div class="document">
+        <div class="header">
+          <h2><%= result.title %> </h2>
+          <a href="<%= result.link %>" target="_blank">
+            <i class="fas fa-link"></i>
+          </a>
+        </div>
+        <div class="body">
+          <div class="authors">
+            <i class="fas fa-users"></i>
+            <span>Authors :</span>
+            <ul>
+              <% result.authors.forEach((author, index) => { %>
+              <li><%= index + 1 %>.  <strong><%= author %></strong> (<%= result.institutes[index] %>)</li>
+              <% }); %>
+            </ul>
+          </div>
+          <div class="published">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Year :</span>
+            <span class="year"><%= result.year %></span>
+          </div>
+          <div class="publisher">
+            <i class="fas fa-upload"></i>
+            <span>Publisher : <%= result.publisher %></span>
+          </div>
+          <div class="pages">
+            <i class="far fa-file"></i>
+            <span>Total Page : <%= result.totalPage %></span>
+          </div>
+          <div class="doi">
+            <i class="fas fa-globe"></i>
+            <span>DOI :</span>
+            <a href="<%= result.doi %>"><%= result.doi %></a>
+          </div>
+        </div>
+      </div>
+
+      <% }); %> 
+    </div>
+  </main>
+
+  <footer>&copy; 2022 - Scientific Documents</footer>
 </body>
 </html>

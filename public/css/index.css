@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+  --dgrey-color: #2B2D42;
+  --lgrey1-color: #8D99AE;
+  --yellow-color: #F8F32B;
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+  --lgrey2-color: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-color: var(--dgrey-color);
+  color: var(--white-color);
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+header h1 {
+  letter-spacing: 1rem;
+  margin: 1rem 0;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--lgrey2-color)
+}
+
+main .filter {
+  margin-bottom: 1rem;
+}
+
+.filter form {
+  display: block;
+}
+
+.filter .query {
+  display: flex;
+  gap: .5rem
+}
+
+.query .title {
+  background-color: var(--lgrey1-color);
+  color: var(--black-color);
+  padding: .5rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.query .title:hover {
+  background-color: var(--dgrey-color);
+  color: var(--white-color);
+}
+
+.query input {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: .5rem .7rem;
+  border: 1px solid var(--lgrey1-color);
+}
+
+.query input:focus {
+  border: 2px solid var(--lgrey1-color);
+}
+
+.query .submit {
+  background-color: var(--dgrey-color);
+  color: var(--white-color);
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.query .submit:hover {
+  background-color: var(--lgrey1-color);
+  color: var(--black-color);
+}
+
+.filter .checkbox {
+  margin-top: .5rem;
+  background-color: var(--lgrey1-color);
+  border-radius: 5px;
+  gap: 1rem;
+  justify-content: space-around;
+  display: flex;
+  padding: 2rem 1rem;
+  display: none;
+}
+
+.filter .checkbox.open {
+  display: flex;
+}
+
+.checkbox .form-group {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.group .form-group:first-child {
+  margin-bottom: 1rem;
+}
+
+.group .form-group:last-child {
+  margin-top: 1rem;
+}
+
+.checkbox .form-group input {
+  width: 15px;
+  height: 15px;
+}
+
+main .render {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+main .document {
+  width: 450px;
+  padding: 1rem;
+  background-color: var(--white-color);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 15px;
+}
+
+.document .header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header a {
+  display: block;
+  background-color: var(--dgrey-color);
+  color: var(--white-color);
+  padding: .5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header a:hover {
+  background-color: var(--lgrey1-color);
+  color: var(--black-color);
+}
+
+.body .authors {
+  margin-bottom: 1rem;
+}
+
+.body .authors ul {
+  list-style: none;
+}
+
+.body .doi {
+  margin-top: 1rem;
+}
+
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--dgrey-color);
+  color: var(--white-color);
+}

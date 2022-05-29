@@ -34,31 +34,41 @@ header {
   padding: 1rem;
 }
 
+header a {
+  text-decoration: none;
+  color: var(--white-color);
+  display: block;
+}
+
 header h1 {
   letter-spacing: 1rem;
   margin: 1rem 0;
+  text-align: center;
 }
 
 main {
   flex: 1;
   padding: 1rem;
-  background-color: var(--lgrey2-color)
+  background-color: var(--lgrey2-color);
+  display: flex;
+  flex-direction: column;
 }
 
-main .filter {
+main .filters {
   margin-bottom: 1rem;
 }
 
-.filter form {
+.filters form {
   display: block;
 }
 
-.filter .query {
+.filters .query {
   display: flex;
   gap: .5rem
 }
 
-.query .title {
+.query .title,
+.query .clear {
   background-color: var(--lgrey1-color);
   color: var(--black-color);
   padding: .5rem 1.2rem;
@@ -66,9 +76,15 @@ main .filter {
   cursor: pointer;
 }
 
-.query .title:hover {
+.query .title:hover,
+.query .clear:hover {
   background-color: var(--dgrey-color);
   color: var(--white-color);
+}
+
+.query .clear {
+  display: block;
+  text-decoration: none;
 }
 
 .query input {
@@ -87,7 +103,7 @@ main .filter {
 .query .submit {
   background-color: var(--dgrey-color);
   color: var(--white-color);
-  padding: .5rem 1rem;
+  padding: .5rem 3rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -98,38 +114,63 @@ main .filter {
   color: var(--black-color);
 }
 
-.filter .checkbox {
+.filters .filter {
+  display: none;
   margin-top: .5rem;
   background-color: var(--lgrey1-color);
   border-radius: 5px;
   gap: 1rem;
-  justify-content: space-around;
+  padding: 1rem;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1000px;
+  justify-content: center;
+}
+
+.filters .filter.open {
   display: flex;
-  padding: 2rem 1rem;
-  display: none;
 }
 
-.filter .checkbox.open {
-  display: flex;
+.filter .form-group {
+  width: 300px;
 }
 
-.checkbox .form-group {
-  display: flex;
-  align-items: center;
-  gap: .3rem;
+.form-group label {
+  display: block;
+  margin-bottom: .3rem;
 }
 
-.group .form-group:first-child {
-  margin-bottom: 1rem;
+.form-group input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: .5rem .7rem;
+  border: 1px solid var(--lgrey2-color);
 }
 
-.group .form-group:last-child {
-  margin-top: 1rem;
+.form-group > input {
+  width: 300px;
 }
 
-.checkbox .form-group input {
-  width: 15px;
-  height: 15px;
+.form-group .input > input {
+  width: 144px;
+}
+
+.filter .submit {
+  border: none;
+  background-color: var(--dgrey-color);
+  color: var(--white-color);
+  border: 1px solid var(--dgrey-color);
+  padding: .5rem 3rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem auto 0 auto;
+}
+
+.filter .submit:hover {
+  color: var(--dgrey-color);
+  background-color: transparent;
+  border: 1px solid var(--dgrey-color);
 }
 
 main .render {
@@ -140,7 +181,7 @@ main .render {
 }
 
 main .document {
-  width: 450px;
+  width: 402px;
   padding: 1rem;
   background-color: var(--white-color);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -181,6 +222,14 @@ main .document {
   margin-top: 1rem;
 }
 
+.not-found {
+  width: 100%;
+  display: flex;
+}
+
+.not-found .info {
+  margin: 4rem auto 0 auto;
+}
 
 footer {
   text-align: center;

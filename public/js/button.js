@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const button = document.querySelector('.title');
-  const filterMenu = document.querySelector('.checkbox');
+  const toggleFilters = () => {
+    const button = document.querySelector('.title');
+    const filterMenu = document.querySelector('.filter');
 
-  button.addEventListener('click', () => {
-    filterMenu.classList.toggle('open');
-  });
+    button.addEventListener('click', () => {
+      filterMenu.classList.toggle('open');
+    });
+  };
+
+  toggleFilters();
 });

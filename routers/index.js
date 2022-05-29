@@ -1,13 +1,24 @@
 const router = require('express').Router();
 const sparql = require('../data/sparql');
+const fromSearchToQuery = require('../helpers/search');
+const fromFilterToQuery = require('../helpers/filter');
 
 router.get('/', async (req, res) => {
-  console.log(req.query);
+  const { search } = req.query;
+
+  let [filter, having] = fromSearchToQuery(search);
+
+  if (!search) {
+    [filter, having] = fromFilterToQuery(req.query);
+  }
+
+  console.log([filter, having]);
+
   const query = `
     SELECT 
     (GROUP_CONCAT(?name; SEPARATOR=",") AS ?authors) 
     (GROUP_CONCAT(?institute; SEPARATOR=",") AS ?institutes) 
-    ?title ?year ?publisher ?doi ?totalPage ?link
+    ?title ?year ?publisher ?doi ?total_page ?link
 
     WHERE {
         ?docId a :Document .
@@ -15,7 +26,7 @@ router.get('/', async (req, res) => {
         ?docId :year ?year .
         ?docId :publisher ?publisher .
         ?docId :doi ?doi .
-        ?docId :total_page ?totalPage .
+        ?docId :total_page ?total_page .
         ?docId :link ?link .
 
         ?docId :hasAuthor ?authorId .
@@ -23,9 +34,14 @@ router.get('/', async (req, res) => {
         ?authorId a :Author .
         ?authorId :name ?name .
         ?authorId :institute ?institute .
+
+        ${filter ? `FILTER (${filter})` : ''}
     }
-    GROUP BY ?title ?year ?publisher ?doi ?totalPage ?link
+    GROUP BY ?title ?year ?publisher ?doi ?total_page ?link
+    ${having ? `HAVING (${having})` : ''}
   `;
+
+  console.log(query);
 
   try {
     let results = await sparql(query);
@@ -35,7 +51,7 @@ router.get('/', async (req, res) => {
       institutes: result.institutes.split(','),
     }));
 
-    res.render('index', { results });
+    res.render('index', { results, query: req.query });
   } catch (error) {
     console.log(error);
   }

@@ -10,55 +10,111 @@
 </head>
 <body>
   <header class="jumbotron">
-    <h1>Scientific</h1>
-    <h1>Documents</h1>
+    <a href="/">
+      <h1>Scientific</h1>
+      <h1>Documents</h1>
+    </a>
   </header>
 
   <main>
-    <div class="filter">
+    <div class="filters">
       <form method="GET">
         <div class="query">
           <div class="title">
             <span>Filters</span>
           </div>
+          <a href="/" class="clear">Clear</a>
           <input type="text" name="search">
           <button type="submit" class="submit">Search</button>
         </div>
-        <div class="checkbox">
-          <div class="group">
-            <div class="form-group">
-              <input type="checkbox" name="authors" checked>
-              <label for="authors">Author</label>
-            </div>
-            <div class="form-group">
-              <input type="checkbox" name="institute" checked>
-              <label for="institute">Institute</label>
+      </form>
+      <form method="GET">
+        <div class="filter">
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author">
+          </div>
+          <div class="form-group">
+            <label for="institute">Institute</label>
+            <input type="text" name="institute" id="institute">
+          </div>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title">
+          </div>
+          <div class="form-group">
+            <label for="publisher">Publisher</label>
+            <input type="text" name="publisher" id="publisher">
+          </div>
+          <div class="form-group">
+            <label for="year">Year</label>
+            <div class="input">
+              <input type="number" name="from-year" min="0">
+              <span>-</span>
+              <input type="number" name="to-year" min="0">
             </div>
           </div>
-          <div class="group">
-            <div class="form-group">
-              <input type="checkbox" name="title" checked>
-              <label for="title">Title</label>
-            </div>
-            <div class="form-group">
-              <input type="checkbox" name="year" checked>
-              <label for="year">Year</label>
+          <div class="form-group">
+            <label for="page">Page</label>
+            <div class="input" id="page">
+              <input type="number" name="from-page" min="0">
+              <span>-</span>
+              <input type="number" name="to-page" min="0">
             </div>
           </div>
-          <div class="group">
-            <div class="form-group">
-              <input type="checkbox" name="publisher" checked>
-              <label for="publisher">Publisher</label>
-            </div>
-            <div class="form-group">
-              <input type="checkbox" name="page" checked>
-              <label for="page">Page</label>
-            </div>
-          </div>
+          <button type="submit" class="submit">Filter</button>
         </div>
       </form>
     </div>
+
     <div class="render">
+      <!-- not found -->
+      <div class="not-found">
+        <div class="info">
+          <h2>Not Found</h2>
+          <p>Sorry, but the page you were trying to view does not exist.</p>
+        </div>
+      </div>
+      
+      <!-- <div class="document">
+        <div class="header">
+          <h2>
+            Pengaruh Motivasi Kerja dan Disiplin Kerja terhadap Kinerja Guru
+          </h2>
+          <a href="https://www.google.com/" target="_blank">
+            <i class="fas fa-link"></i>
+          </a>
+        </div>
+        <div class="body">
+          <div class="authors">
+            <i class="fas fa-users"></i>
+            <span>Authors :</span>
+            <ul>
+              <li>1. <strong>Author 1</strong> (Unpad)</li>
+              <li>2. <strong>Author 1</strong> (Unpad)</li>
+              <li>3. <strong>Author 1</strong> (Unpad)</li>
+            </ul>
+          </div>
+          <div class="published">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Year :</span>
+            <span class="year">2022</span>
+          </div>
+          <div class="publisher">
+            <i class="fas fa-upload"></i>
+            <span>Publisher : Jurnal Pendidikan Tambusai</span>
+          </div>
+          <div class="pages">
+            <i class="far fa-file"></i>
+            <span>Total Page : 7</span>
+          </div>
+          <div class="doi">
+            <i class="fas fa-globe"></i>
+            <span>DOI :</span>
+            <a href="https://doi.org/10.1038/nature12096">https://doi.org/10.1038/nature12096</a>
+          </div>
+        </div>
+      </div>
       <div class="document">
         <div class="header">
           <h2>
@@ -98,6 +154,84 @@
           </div>
         </div>
       </div>
+      <div class="document">
+        <div class="header">
+          <h2>
+            Pengaruh Motivasi Kerja dan Disiplin Kerja terhadap Kinerja Guru
+          </h2>
+          <a href="https://www.google.com/" target="_blank">
+            <i class="fas fa-link"></i>
+          </a>
+        </div>
+        <div class="body">
+          <div class="authors">
+            <i class="fas fa-users"></i>
+            <span>Authors :</span>
+            <ul>
+              <li>1. <strong>Author 1</strong> (Unpad)</li>
+              <li>2. <strong>Author 1</strong> (Unpad)</li>
+              <li>3. <strong>Author 1</strong> (Unpad)</li>
+            </ul>
+          </div>
+          <div class="published">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Year :</span>
+            <span class="year">2022</span>
+          </div>
+          <div class="publisher">
+            <i class="fas fa-upload"></i>
+            <span>Publisher : Jurnal Pendidikan Tambusai</span>
+          </div>
+          <div class="pages">
+            <i class="far fa-file"></i>
+            <span>Total Page : 7</span>
+          </div>
+          <div class="doi">
+            <i class="fas fa-globe"></i>
+            <span>DOI :</span>
+            <a href="https://doi.org/10.1038/nature12096">https://doi.org/10.1038/nature12096</a>
+          </div>
+        </div>
+      </div>
+      <div class="document">
+        <div class="header">
+          <h2>
+            Pengaruh Motivasi Kerja dan Disiplin Kerja terhadap Kinerja Guru
+          </h2>
+          <a href="https://www.google.com/" target="_blank">
+            <i class="fas fa-link"></i>
+          </a>
+        </div>
+        <div class="body">
+          <div class="authors">
+            <i class="fas fa-users"></i>
+            <span>Authors :</span>
+            <ul>
+              <li>1. <strong>Author 1</strong> (Unpad)</li>
+              <li>2. <strong>Author 1</strong> (Unpad)</li>
+              <li>3. <strong>Author 1</strong> (Unpad)</li>
+            </ul>
+          </div>
+          <div class="published">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Year :</span>
+            <span class="year">2022</span>
+          </div>
+          <div class="publisher">
+            <i class="fas fa-upload"></i>
+            <span>Publisher : Jurnal Pendidikan Tambusai</span>
+          </div>
+          <div class="pages">
+            <i class="far fa-file"></i>
+            <span>Total Page : 7</span>
+          </div>
+          <div class="doi">
+            <i class="fas fa-globe"></i>
+            <span>DOI :</span>
+            <a href="https://doi.org/10.1038/nature12096">https://doi.org/10.1038/nature12096</a>
+          </div>
+        </div>
+      </div> -->
     </div>
   </main>
 

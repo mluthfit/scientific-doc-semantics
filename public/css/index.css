@@ -115,23 +115,27 @@ main .filters {
 }
 
 .filters .filter {
-  display: none;
+  display: flex;
   margin-top: .5rem;
   background-color: var(--lgrey1-color);
   border-radius: 5px;
-  gap: 1rem;
-  padding: 1rem;
+  column-gap: 1rem;
   flex-wrap: wrap;
   width: 90%;
   max-width: 1000px;
   justify-content: center;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
 }
 
 .filters .filter.open {
-  display: flex;
+  max-height: 500px;
+  transition: max-height 0.5s ease-in;
 }
 
 .filter .form-group {
+  margin-top: 1.5rem;
   width: 300px;
 }
 
@@ -164,7 +168,7 @@ main .filters {
   padding: .5rem 3rem;
   border-radius: 5px;
   cursor: pointer;
-  margin: 1rem auto 0 auto;
+  margin: 1.5rem auto;
 }
 
 .filter .submit:hover {
@@ -228,7 +232,7 @@ main .document {
 }
 
 .not-found .info {
-  margin: 4rem auto 0 auto;
+  margin: 4rem auto;
 }
 
 footer {

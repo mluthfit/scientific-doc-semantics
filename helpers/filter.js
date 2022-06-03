@@ -13,10 +13,10 @@ const fromFilterToQuery = (request) => {
   let filter = `
     ${title ? `regex(?title, "${title}", "i")` : ''}
     ${publisher ? `&& regex(?publisher, "${publisher}", "i")` : ''}
-    ${fromYear ? `&& ?year >= "${fromYear}"` : ''}
-    ${toYear ? `&& ?year <= "${toYear}"` : ''}
-    ${fromPage ? `&& ?total_page >= "${fromPage}"` : ''}
-    ${toPage ? `&& ?total_page <= "${toPage}"` : ''}
+    ${fromYear ? `&& xsd:integer(?year) >= ${fromYear}` : ''}
+    ${toYear ? `&& xsd:integer(?year) <= ${toYear}` : ''}
+    ${fromPage ? `&& xsd:integer(?total_page) >= ${fromPage}` : ''}
+    ${toPage ? `&& xsd:integer(?total_page) <= ${toPage}` : ''}
   `.replace(/\n/g, '').trim();
 
   let having = `

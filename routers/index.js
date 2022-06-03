@@ -12,8 +12,6 @@ router.get('/', async (req, res) => {
     [filter, having] = fromFilterToQuery(req.query);
   }
 
-  console.log([filter, having]);
-
   const query = `
     SELECT 
     (GROUP_CONCAT(?name; SEPARATOR=",") AS ?authors) 
@@ -40,8 +38,6 @@ router.get('/', async (req, res) => {
     GROUP BY ?title ?year ?publisher ?doi ?total_page ?link
     ${having ? `HAVING (${having})` : ''}
   `;
-
-  console.log(query);
 
   try {
     let results = await sparql(query);
